@@ -1,0 +1,593 @@
+:root {
+    --color-primary: #1e40af; 
+    --color-secondary: #3b82f6; 
+    --color-accent: #60a5fa; 
+    --color--light-blue: #9bcafb;
+    --color-gray: #cecece;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: "Poppins", sans-serif;
+}
+
+@layer utilities {
+  .bg-primary {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  }
+  .bg-secondary {
+    background:#3b82f6;
+  }
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  .border-light-blue {
+    border-color: var(--color--light-blue);
+  }
+  .text-bg-primary {
+    color: #1e40af;
+  }
+  .text-blue-secondary {
+    color: var(--color-secondary);
+  }
+}
+
+/* Estilos adicionales para el hero */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(30, 58, 138, 0.2) 100%);
+}
+
+.bg-hero-fondo-color{
+    background-color: #3b82f6;
+}
+
+/* Animaciones suaves */
+.fade-in {
+  animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animaciones para partículas */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Responsive para el hero */
+@media (max-width: 640px) {
+  /* Móviles pequeños */
+  .hero-text {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .hero-quote {
+    font-size: 3rem;
+  }
+  
+  /* Ajustar imagen de personas en móvil */
+  .hero-image-mobile {
+    max-width: 90%;
+    opacity: 0.15;
+  }
+  
+  /* Partículas más pequeñas en móvil */
+  .hero-particles {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Tablets pequeños */
+  .hero-text {
+    font-size: 2rem;
+  }
+  
+  .hero-quote {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablets grandes */
+  .hero-text {
+    font-size: 3rem;
+  }
+  
+  .hero-quote {
+    font-size: 5rem;
+  }
+}
+
+/* Mejoras generales para el hero */
+.hero-section {
+  background-attachment: fixed;
+}
+
+.hero-content {
+  backdrop-filter: blur(1px);
+}
+
+/* Estilos para la sección de estadísticas */
+.stats-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e5e7eb 50%, transparent 100%);
+}
+
+.stats-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Animación para los contadores */
+.counter {
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+.counter.animating {
+  color: #1d4ed8;
+  text-shadow: 0 0 20px rgba(29, 78, 216, 0.3);
+  transform: scale(1.05);
+}
+
+/* Animación de entrada para los números */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.stats-item {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stats-item:hover {
+  transform: translateY(-8px);
+}
+
+.stats-item:hover .counter {
+  color: #1d4ed8;
+}
+
+/* Efecto de brillo en los iconos */
+.stats-item img {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.stats-item:hover img {
+  filter: drop-shadow(0 8px 16px rgba(59, 130, 246, 0.3));
+  transform: scale(1.1);
+}
+
+/* Estilos para la sección "Acerca de nosotros" */
+.image-container {
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 8px;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 100%;
+  padding: 8px;
+  transform: translateY(-5px);
+  background: var(--color-primary);
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
+}
+
+.image-container img{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.image-container:hover {
+  background: var(--color-secondary);
+  padding: 8px;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
+}
+
+.image-item {
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.image-container:hover .image-item {
+  border-radius: 12px;
+  filter: brightness(1.1) saturate(1.1);
+}
+
+/* Overlay hover effect */
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  background: var(--color-secondary);
+  border-radius: 16px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.image-container:hover::before {
+  opacity: 0.1;
+}
+
+/* Responsive adjustments para acerca de nosotros */
+@media (max-width: 1024px) {
+  .image-container {
+    border-radius: 20px;
+  }
+
+  .image-container img{
+    border-radius: 15px;
+  }
+  
+  .image-container:hover {
+    padding: 6px;
+  }
+  
+  .image-item {
+    border-radius: 12px;
+  }
+  
+  .image-container:hover .image-item {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    border-radius: 12px;
+    padding: 3px;
+  }
+  
+  .image-container:hover {
+    padding: 5px;
+  }
+  
+  .image-item {
+    border-radius: 8px;
+  }
+  
+  .image-container::before {
+    border-radius: 8px;
+  }
+}
+
+/* Estilos para la sección de campañas */
+.campaign-card {
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.campaign-card:hover {
+  transform: translateY(-8px);
+}
+
+.campaign-image-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+
+.campaign-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+  margin: 0 auto;
+}
+
+.campaign-icon {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  border-radius: 50%;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.campaign-card:hover .campaign-icon {
+  transform: scale(1.1);
+}
+
+.campaign-text {
+  margin-top: 16px;
+}
+
+.campaign-text h3 {
+  transition: all 0.3s ease;
+}
+
+.campaign-card:hover .campaign-text h3 {
+  transform: translateY(-2px);
+}
+
+/* Responsive para campañas */
+@media (max-width: 768px) {
+  .campaign-image-container {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 16px;
+    padding: 6px;
+  }
+  
+  .campaign-icon {
+    padding: 6px;
+    top: -2px;
+    left: 30%;
+  }
+  
+  .campaign-icon img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .campaign-image-container {
+    width: 230px;
+    height: 230px;
+    padding: 5px;
+  }
+  
+  .campaign-icon {
+    padding: 4px;
+  }
+  
+  .campaign-icon {
+    left: 20% !important;
+  }
+}
+
+/* Estilos para la sección de donación */
+.donation-hands-container {
+  max-width: 400px;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.donation-hands-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  border-radius: 20px;
+}
+
+.payment-icon {
+  padding: 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.payment-icon:hover {
+  transform: translateY(-2px);
+}
+
+.payment-icon img {
+  transition: all 0.3s ease;
+}
+
+.payment-icon:hover img {
+  transform: scale(1.1);
+}
+
+/* Estilos para la sección de contacto */
+.contact-icon {
+  background: #3b82f6;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  transition: all 0.3s ease;
+}
+
+.contact-icon:hover {
+  background: #1e40af;
+  transform: scale(1.1);
+}
+
+.contact-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.social-icon {
+  background: #3b82f6;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+.social-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.map-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.map-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Responsive para sección de donación */
+@media (max-width: 1024px) {
+  .donation-hands-container {
+    max-width: 300px;
+  }
+  
+  .payment-icon {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .donation-hands-container {
+    max-width: 250px;
+  }
+  
+  .payment-icon img {
+    width: 72px !important;
+    height: 72px !important;
+  }
+  
+  .contact-icon {
+    min-width: 36px;
+    min-height: 36px;
+  }
+  
+  .social-icon {
+    padding: 6px;
+  }
+  
+  .map-container iframe {
+    height: 250px !important;
+  }
+}
+
+/* Estilos para el footer */
+.footer-social-icon {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-social-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.footer-social-icon img {
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.footer-contact-icon {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-contact-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.footer-contact-icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* Responsive para footer */
+@media (max-width: 768px) {
+  .footer-social-icon {
+    padding: 10px;
+  }
+  
+  .footer-contact-icon {
+    padding: 6px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+}
