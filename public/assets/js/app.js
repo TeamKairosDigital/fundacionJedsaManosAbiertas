@@ -213,6 +213,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+    // =============================================
+    // GALERÍA DE FOTOS - GLightbox
+    // =============================================
+    // Array de fotos por galería. Solo agrega nombres de archivo aquí
+    // y coloca las imágenes en la carpeta correspondiente.
+    // Las 3 primeras se muestran en la página, las demás solo en el lightbox.
+    const galerias = {
+      'donacion-alimentos': {
+        carpeta: 'assets/img/evento-1/',
+        fotos: [
+          'evento-1_1.jpeg',
+          'evento-1_2.jpeg',
+          'evento-1_3.jpeg',
+          'evento-1_4.jpeg',
+          'evento-1_5.jpeg',
+          'evento-1_6.jpeg',
+          'evento-1_7.jpeg',
+          'evento-1_8.jpeg',
+          'evento-1_9.jpeg',
+          'evento-1_10.jpeg',
+          'evento-1_11.jpeg',
+          'evento-1_12.jpeg',
+          'evento-1_13.jpeg',
+          'evento-1_14.jpeg',
+          'evento-1_15.jpeg',
+          // Agrega más fotos aquí, ejemplo:
+          // 'evento-1_4.jpeg',
+          // 'evento-1_5.jpeg',
+        ]
+      }
+      // Puedes agregar más galerías aquí:
+      // 'talleres-educativos': {
+      //   carpeta: 'assets/img/evento-2/',
+      //   fotos: ['foto1.jpeg', 'foto2.jpeg']
+      // }
+    };
+
+    // Generar enlaces ocultos para fotos adicionales (a partir de la 4ta)
+    Object.keys(galerias).forEach(galeriaId => {
+      const galeria = galerias[galeriaId];
+      const contenedorOculto = document.getElementById('galeria-oculta-' + galeriaId);
+      if (!contenedorOculto) return;
+
+      // Las primeras 3 ya están en el HTML, agregar las demás como enlaces ocultos
+      galeria.fotos.slice(3).forEach((foto, index) => {
+        const enlace = document.createElement('a');
+        enlace.href = galeria.carpeta + foto;
+        enlace.classList.add('glightbox');
+        enlace.setAttribute('data-gallery', galeriaId);
+        enlace.setAttribute('data-description', '');
+        contenedorOculto.appendChild(enlace);
+      });
+    });
+
+    // Inicializar GLightbox
+    const lightbox = GLightbox({
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+      draggable: true,
+      openEffect: 'fade',
+      closeEffect: 'fade',
+      cssEfects: {
+        fade: { in: 'fadeIn', out: 'fadeOut' }
+      }
+    });
+
     document.querySelectorAll('a.scroll-link').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();

@@ -17,6 +17,11 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- GLightbox - Galería de fotos con zoom -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
     <script src="assets/js/app.js"></script>
 </head>
 <body class="scroll-smooth overflow-x-hidden">
@@ -255,30 +260,33 @@
             </div> -->
           </div>
           
-          <!-- Galería de imágenes -->
-          <div class="lg:w-1/2 mt-8 lg:mt-0">
-            <div class="flex  ">
-              
+          <!-- Galería de imágenes - Donación de alimentos -->
+          <div class="lg:w-1/2 mt-8 lg:mt-0" id="galeria-donacion-alimentos">
+            <div class="flex">
+
               <div class="w-full" data-aos="zoom-in-right" data-aos-delay="400" data-aos-duration="1000">
-                <div class="image-container group cursor-pointer">
-                  <img src="assets/img/IMAGE_1.png" alt="Imagen 1" class="">
-                </div>
+                <a href="assets/img/evento-1/evento-1_1.jpeg" class="glightbox image-container group cursor-pointer block overflow-hidden rounded-lg" data-gallery="donacion-alimentos" data-description="">
+                  <img src="assets/img/evento-1/evento-1_1.jpeg" alt="Donación de alimentos 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                </a>
               </div>
-              
+
               <!-- Imagen 2 -->
               <div class="w-full mx-4" data-aos="zoom-in-left" data-aos-delay="500" data-aos-duration="1000">
-                <div class="image-container group cursor-pointer">
-                  <img src="assets/img/IMAGE_3.png" alt="Imagen 2" class="">
-                </div>
+                <a href="assets/img/evento-1/evento-1_2.jpeg" class="glightbox image-container group cursor-pointer block overflow-hidden rounded-lg" data-gallery="donacion-alimentos" data-description="">
+                  <img src="assets/img/evento-1/evento-1_2.jpeg" alt="Donación de alimentos 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                </a>
               </div>
-              
+
             </div>
             <!-- Imagen 3 -->
             <div class="w-1/2 mx-auto -mt-10" data-aos="zoom-in-right" data-aos-delay="600" data-aos-duration="1000">
-              <div class="image-container group cursor-pointer">
-                <img src="assets/img/IMAGE_2.png" alt="Imagen 3" class="">
-              </div>
+              <a href="assets/img/evento-1/evento-1_3.jpeg" class="glightbox image-container group cursor-pointer block overflow-hidden rounded-lg" data-gallery="donacion-alimentos" data-description="">
+                <img src="assets/img/evento-1/evento-1_3.jpeg" alt="Donación de alimentos 3" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+              </a>
             </div>
+
+            <!-- Imágenes adicionales ocultas (solo se ven en el lightbox) -->
+            <div id="galeria-oculta-donacion-alimentos" class="hidden"></div>
           </div>
           
         </div>
@@ -453,7 +461,7 @@
                 </div>
                 <div>
                   <h3 class="text-blue-800 font-bold text-lg mb-1">Fundación Manos Abiertas A.C.</h3>
-                  <p class="text-gray-700">Av. Gonzales Ortega sur #38<br />CP 30640 Huixtla, Chis.</p>
+                  <p class="text-gray-700">Av. Gonzales Ortega sur #35<br />CP 30640 Huixtla, Chis.</p>
                 </div>
               </div>
               
